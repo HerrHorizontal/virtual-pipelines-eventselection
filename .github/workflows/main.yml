@@ -6,3 +6,11 @@ jobs:
     steps:
       - run: echo hello world
 
+  build_skim: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          COMPILER=$(root-config --cxx)
+          $COMPILER -g -03 -Wall -Wextra -Wpendantic -o skim skim.cxx
+
